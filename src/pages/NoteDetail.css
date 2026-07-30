@@ -1,0 +1,242 @@
+.note-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+/* Loading and Not Found States */
+.loading-state {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Header */
+.note-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--color-separator);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Back Link */
+.btn-back {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btn-back:hover {
+  opacity: 0.7;
+}
+
+/* Buttons */
+.btn-edit,
+.btn-delete,
+.btn-save,
+.btn-secondary {
+  height: 36px;
+  padding: 0 1rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border: none;
+  transition: var(--transition);
+  letter-spacing: -0.01em;
+}
+
+.btn-edit {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-edit:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background-color: var(--color-surface);
+  color: var(--color-danger);
+  border: 0.5px solid rgba(255, 59, 48, 0.2);
+}
+
+.btn-delete:hover:not(:disabled) {
+  background-color: rgba(255, 59, 48, 0.1);
+}
+
+.btn-save {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: #28A745;
+  transform: translateY(-1px);
+}
+
+.btn-save:disabled,
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  border: 0.5px solid var(--color-separator);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-bg);
+}
+
+/* Note Content - View Mode */
+.note-content {
+  background: var(--color-surface);
+  margin: 2rem;
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: var(--shadow-sm);
+  border: 0.5px solid var(--color-separator);
+}
+
+.note-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  word-wrap: break-word;
+  letter-spacing: -0.02em;
+}
+
+.note-body {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-weight: 400;
+}
+
+.empty-content {
+  color: var(--color-text-tertiary);
+  font-style: italic;
+}
+
+/* Note Content - Edit Mode */
+.title-input {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-separator);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  font-family: inherit;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.title-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.title-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.content-textarea {
+  width: 100%;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  padding: 1rem;
+  border: 1px solid var(--color-separator);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  resize: vertical;
+  min-height: 400px;
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+}
+
+.content-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.content-textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .note-header {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .note-content {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .note-title {
+    font-size: 1.75rem;
+  }
+
+  .title-input {
+    font-size: 1.5rem;
+  }
+
+  .btn-edit,
+  .btn-delete,
+  .btn-save,
+  .btn-secondary {
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-actions {
+    flex-wrap: wrap;
+  }
+
+  .header-actions button {
+    flex: 1;
+    min-width: 100px;
+  }
+}
